@@ -351,7 +351,11 @@
 (defn- path-data
   "Extract the data for the supplied path."
   [elements data]
-  (get-in data (map keyword elements)))
+  (reduce (fn [data element]
+            (if-let [value (trampoline get data (keyword element))]
+              value
+              (reduced nil)))
+          data elements))
 
 (defn- convert-path
   "Convert a tag with a dotted name to nested sections, using the
