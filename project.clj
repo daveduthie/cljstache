@@ -9,7 +9,7 @@
 
   :dependencies []
 
-  :profiles {:dev {:dependencies [[org.clojure/clojure "1.8.0"]
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.10.1"]
                                   [org.clojure/data.json "0.2.6"]]
                    :resource-paths ["test-resources"]}
              :1.7 {:dependencies [[org.clojure/clojure "1.7.0"]]}
@@ -39,5 +39,5 @@
   :cljsbuild {:builds
               {:test {:source-paths ["src" "test"]
                       :compiler {:output-to "target/unit-test.js"
-                                 :main 'cljstache.runner
+                                 :main cljstache.runner
                                  :optimizations :whitespace}}}})
